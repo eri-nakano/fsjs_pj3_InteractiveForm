@@ -346,7 +346,7 @@ function cvvVal(){
   }
 };
 
-// add each function to each section
+// real time validation
 name.addEventListener('blur', nameVal, false);
 name.addEventListener('keyup', nameVal, false);
 mail.addEventListener('blur', mailVal, false);
@@ -357,12 +357,23 @@ zip.addEventListener('focus', zipVal, false);
 zip.addEventListener('keyup', zipVal, false);
 cvv.addEventListener('focus', cvvVal, false);
 cvv.addEventListener('keyup', cvvVal, false);
+
+// validation on submit
 submit.addEventListener('click',(e)=>{
-  // nameVal();
-  // mailVal();
-  actVal();
-  // ccNumVal();
-  // zipVal();
-  // cvvVal();
-  e.preventDefault();
+  if (nameVal() && mailVal() && actVal() && ccNumVal() && zipVal() && cvvVal()) {
+    nameVal();
+    mailVal();
+    actVal();
+    ccNumVal();
+    zipVal();
+    cvvVal();
+  } else {
+    nameVal();
+    mailVal();
+    actVal();
+    ccNumVal();
+    zipVal();
+    cvvVal();
+    e.preventDefault();
+  }
 });
