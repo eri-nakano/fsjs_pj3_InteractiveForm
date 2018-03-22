@@ -6,14 +6,12 @@ const jobRoleText = document.getElementById('other-title');
 
 //  set the focus on first text field when the page is loaded
 name.focus();
-// jobRole.parentNode.removeChild(jobRoleText);
-jobRoleText.style.display='none';
+
 // add text field when "Other" option is chosen on the Job Role
+jobRoleText.style.display='none';
 jobRole.addEventListener('change', (e)=> {
-  // jobRole.parentNode.removeChild(jobRoleText);
   if (title.value == 'other') {
     jobRoleText.style.display='block';
-    // jobRole.parentNode.appendChild(jobRoleText);
   } else {
     jobRoleText.style.display='none';
   }
@@ -30,7 +28,6 @@ const steelblue = document.querySelectorAll('#color option')[4];
 const dimgrey = document.querySelectorAll('#color option')[5];
 // only show the available colors for the chosen design
 function chooseColor(){
-  // for (let i = 0; i < design.length; i++) {
     if (design.value === 'js puns') {
       color.style.display = 'block';
       cornFlowerBlue.style.display = 'block';
@@ -56,7 +53,6 @@ function chooseColor(){
       steelblue.style.display = 'none';
       dimgrey.style.display = 'none';
     }
-  // }
 };
 chooseColor();
 
