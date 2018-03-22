@@ -1,24 +1,25 @@
-//  set the focus on first text field when the page is loaded
+///// Basic Info Section /////
 const name = document.getElementById('name');
-name.focus();
-
-// add text field when "Other" option is chosen on the Job Role
+const mail = document.getElementById('mail');
 const jobRole = document.getElementById('title');
-const jobRoleText = document.createElement('input');
-jobRoleText.type = 'text';
-jobRoleText.id = 'other-title';
-jobRoleText.placeholder = 'Your Job Role';
+const jobRoleText = document.getElementById('other-title');
 
+//  set the focus on first text field when the page is loaded
+name.focus();
+// jobRole.parentNode.removeChild(jobRoleText);
+jobRoleText.style.display='none';
+// add text field when "Other" option is chosen on the Job Role
 jobRole.addEventListener('change', (e)=> {
-  jobRole.parentNode.appendChild(jobRoleText);
-  if (title.value === 'other') {
-    jobRoleText.style.display = 'block';
+  // jobRole.parentNode.removeChild(jobRoleText);
+  if (title.value == 'other') {
+    jobRoleText.style.display='block';
+    // jobRole.parentNode.appendChild(jobRoleText);
   } else {
-    jobRoleText.style.display = 'none';
+    jobRoleText.style.display='none';
   }
 });
 
-///// T-Shirt Info /////
+///// T-Shirt Info Section /////
 const design = document.getElementById('design');
 const color = document.getElementById('colors-js-puns');
 const cornFlowerBlue = document.querySelectorAll('#color option')[0];
@@ -27,12 +28,11 @@ const gold = document.querySelectorAll('#color option')[2];
 const tomato = document.querySelectorAll('#color option')[3];
 const steelblue = document.querySelectorAll('#color option')[4];
 const dimgrey = document.querySelectorAll('#color option')[5];
-
 // only show the available colors for the chosen design
 function chooseColor(){
-  for (let i = 0; i < design.length; i++) {
+  // for (let i = 0; i < design.length; i++) {
     if (design.value === 'js puns') {
-      color.display = 'block';
+      color.style.display = 'block';
       cornFlowerBlue.style.display = 'block';
       darkSlateGrey.style.display = 'block';
       gold.style.display = 'block';
@@ -56,7 +56,7 @@ function chooseColor(){
       steelblue.style.display = 'none';
       dimgrey.style.display = 'none';
     }
-  }
+  // }
 };
 chooseColor();
 
@@ -70,8 +70,9 @@ design.addEventListener('change', (e) =>{
   }
 });
 
-///// Register for Activities /////
+///// Register for Activities Section /////
 const activities = document.getElementsByClassName('activities')[0];
+const activitiesLegend = document.querySelectorAll('legend')[2];
 const main = document.getElementsByName('all')[0];
 const frameworks = document.getElementsByName('js-frameworks')[0];
 const libs = document.getElementsByName('js-libs')[0];
@@ -139,6 +140,9 @@ activities.addEventListener('change', activityRegister, false);
 ////// Payment Info section of the form /////
 const payment = document.getElementById('payment');
 const credit = document.getElementById('credit-card');
+const ccNum = document.getElementById('cc-num');
+const zip = document.getElementById('zip');
+const cvv = document.getElementById('cvv');
 const paypal = document.querySelectorAll('fieldset div p')[0];
 const bitcoin = document.querySelectorAll('fieldset div p')[1];
 
@@ -169,12 +173,6 @@ payment.addEventListener('change', paymentMethod, false);
 
 
 ///// Form Validation /////
-
-const activitiesLegend = document.querySelectorAll('legend')[2];
-const mail = document.getElementById('mail');
-const ccNum = document.getElementById('cc-num');
-const zip = document.getElementById('zip');
-const cvv = document.getElementById('cvv');
 const submit = document.querySelector('button');
 const nameError = document.createElement('span');
 const mailError = document.createElement('span');
@@ -189,7 +187,7 @@ const cvvInvalid = document.createElement('span');
 const errorStyle = 'border: 1px solid #E50000; background: #ffc9c9';
 
 // error messages
-// name
+// no name
 nameError.textContent= 'Your name is required.';
 nameError.style.color = '#E50000';
 // no email address
